@@ -11,7 +11,7 @@ const extensions = ['png', 'jpg', 'bmp']
 const arguments = process.argv.slice(2)
 
 // Extract extension from input, throw error if not present
-function getExtension(input) {
+const getExtension = input => {
     let inputRev = input.split('').reverse().join('')
     let index = inputRev.indexOf('.')
     if (index === -1) {
@@ -27,7 +27,7 @@ function getExtension(input) {
 }
 
 // Extract extension and also check for supported extensions
-function getExtensionChecked(input) {
+const getExtensionChecked = input => {
     let extension = getExtension(input)
     if (!extensions.some(x => x === extension)) {
         throw `Extension '${extension}' not supported! Try: ${extensions.join(', ')}`
