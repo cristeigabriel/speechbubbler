@@ -26,18 +26,20 @@ const getExtension = input => {
     return extension
 }
 
-// Extract extension and also check for supported extensions
-const getExtensionChecked = input => {
-    let extension = getExtension(input)
-    if (!extensions.some(x => x === extension)) {
-        throw `Extension '${extension}' not supported! Try: ${extensions.join(', ')}`
-    }
-
-    return extension
-}
-
 // Get file as {file, extension}
-const getFile = (input) => { return { file: input, extension: getExtensionChecked(input) } }
+const getFile = (input) => {
+    return {
+        file: input,
+        extension: (() => {
+            let extension = getExtension(input)
+            if (!extensions.some(x => x === extension)) {
+                throw `Extension '${extension}' not supported! Try: ${extensions.join(', ')}`
+            }
+
+            return extension
+        })()
+    }
+}
 
 // First argument: input file
 const inputFile = getFile(arguments[0])
@@ -130,10 +132,10 @@ async function run() {
                 let d = (i == start) ? 0 : (i - start) / (end - start)
                 let v = 90 * d
 
-                
+
                 let column = Math.floor(imgWidth / 2 + Math.sin(deg2rad(i)) * imgWidth / 2)
                 let row = Math.max(0, Math.floor(Math.abs(Math.cos(deg2rad(v))) * occupyHeight) - 1)
-                
+
                 if (goNegative === null) {
                     // Check if we're going to overflow if we go too far to the right
                     // If that's the case, then start going to the left to apply
