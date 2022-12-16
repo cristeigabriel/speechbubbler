@@ -143,7 +143,7 @@ const getEncodedDataFromArray = (inputImage, to, bubblePercentage) => {
     return encodedData(to)
 }
 /**
- * @param  {object} input File to open (format must be in `extensions`)
+ * @param  {object} input URL or file to open (format must be in `extensions`)
  * @param  {string} to Encoding format (must be in `extensions`)
  * @param  {Number} bubblePercentage How much of the image will be occupied, from top, by speech bubble
  * @returns {Promise<Uint8Array>} Flattened data encoded as format specified in `to` field
