@@ -51,7 +51,7 @@ const outputFile = getFile(arguments[1])
 const bubblePercentage = Math.min(Number(arguments[2]) || 0.3, 1)
 
 // Async runner
-async function run() {
+const run = async () => {
     // Get byte array representing image RGBA data
     let inputImage = await imageToRgbaMatrix(inputFile.file)
 
