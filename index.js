@@ -162,9 +162,9 @@ async function run() {
     // Apply speech bubbler a given percentage of image from top
     speechBubbler(bubblePercentage)
 
-    // Declare predicates for available output formats
+    // Declare potential encodings for available output formats
     // Already error checked by outputFile declaration
-    const savePredicate = format => {
+    const saveEncodings = format => {
         if (format === 'png') {
             return png.encode({ width: imgWidth, height: imgHeight, data: inputImage.flat(2) })
         } else if (format === 'jpg') {
@@ -176,7 +176,7 @@ async function run() {
     }
 
     // Save new image
-    return writeFile(outputFile.file, savePredicate(outputFile.extension), (err) => {
+    return writeFile(outputFile.file, saveEncodings(outputFile.extension), (err) => {
         if (err) throw err
     })
 }
