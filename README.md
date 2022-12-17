@@ -13,8 +13,5 @@ You may run the program through the command `npm run start` or `node index.js` a
 # Examples
 Inputting [static/in.jpg](./static/in.jpg), with default bubbling percentage, we can get, respectively: [static/out.png](./static/out.png), [static/out.jpg](./static/out.jpg), [static/out.bmp](staitc/../static/out.bmp).
 
-# More image formats support
-I may, at a later time, add GIF support. I don't see the need for it yet, though, but if someone asks for it in an issue, I will add it.
-
 # License
 [ISC license](./LICENSE.md), as it appears to be the most common in npm packages, but if this prevents anyone from modifying or redistributing this piece of code, I will change it per request.
