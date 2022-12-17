@@ -95,7 +95,6 @@ const getEncodedDataFromArray = (inputImage, to, bubblePercentage) => {
                 let d = (i == start) ? 0 : (i - start) / (end - start)
                 let v = 90 * d
 
-
                 let column = Math.floor(imgWidth / 2 + Math.sin(deg2Rad(i)) * imgWidth / 2)
                 let row = Math.max(0, Math.floor(Math.abs(Math.cos(deg2Rad(v))) * occupyHeight) - 1)
 
@@ -142,6 +141,7 @@ const getEncodedDataFromArray = (inputImage, to, bubblePercentage) => {
 
     return encodedData(to)
 }
+
 /**
  * @param  {object} input URL or file to open (format must be in `extensions`)
  * @param  {string} to Encoding format (must be in `extensions`)

@@ -9,20 +9,16 @@ const getFile = input => {
     return {
         file: input,
         extension: (() => {
-            let extension = (() => {
-                let inputRev = input.split('').reverse().join('')
-                let index = inputRev.indexOf('.')
-                if (index === -1) {
-                    throw `No extension in '${input}'!`
-                }
+            let inputRev = input.split('').reverse().join('')
+            let index = inputRev.indexOf('.')
+            if (index === -1) {
+                throw `No extension in '${input}'!`
+            }
 
-                let extension = input.slice(input.length - index)
-                if (extension.length === 0) {
-                    throw `'${input}' doesn't contain any extension!`
-                }
-
-                return extension
-            })()
+            let extension = input.slice(input.length - index)
+            if (extension.length === 0) {
+                throw `'${input}' doesn't contain any extension!`
+            }
 
             return extension
         })()
